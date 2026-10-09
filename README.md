@@ -24,11 +24,13 @@ writeups-ctf/
 
 | Nome | Dificuldade | OS | Data |
 |------|-------------|-----|------|
+| [Cap](hackthebox/easy/cap.md) | Easy | Linux | 2026-10-09 |
 
 ### TryHackMe
 
 | Nome | Dificuldade | Data |
 |------|-------------|------|
+| Pickle Rick | Easy | 2026-10-09 |
 
 ### Competições
 
